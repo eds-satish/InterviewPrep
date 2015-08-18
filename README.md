@@ -2,9 +2,9 @@
 
 I. **Javascript**
   1. Resources
-  - http://www.jstherightway.org/
-  - Front End Development: https://github.com/h5bp/Front-end-Developer-Interview-Questions
-  - 
+    - http://www.jstherightway.org/
+    - Front End Development: https://github.com/h5bp/Front-end-Developer-Interview-Questions
+   
 
 II. **Other**
   1. Resources
