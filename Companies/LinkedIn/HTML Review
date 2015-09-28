@@ -1,0 +1,252 @@
+HTML Review
+1. Doctype
+	- instruction to the browser to inform about the version of html document and how browser should render it.
+	- required for valid markup.
+	<DOCTYPE html>
+	<meta charset="UTF-8">
+
+2. data-* 
+	- store extra information/data in the DOM
+
+3. Style tag
+<style type="text/css">
+	body {
+		color: red;
+	}
+</style>
+
+4. Optional closing tag - p, tr, td, html, body,
+ 	- saves bytes and reduces bytes in html file 
+
+5. span vs div
+	- div is a block element 
+		- used to wrap sections of a document
+	- span is inline element
+		- wrap small portions of text, images
+	- illegal to place a block level element within an 
+	inline element
+
+	<div>Some <span>text that <div>I want</div> to mark
+	</span> up</div>
+
+6. <Section> - group of content related to a single theme; related stuff.
+   <Article> - complete composition in a document.
+   i.e. a post, magazine article.
+   <Div> - does not convey meaning, aside for its attributes of class, lang, and title.
+
+7. Canvas vs. svg
+	Canvas - pixel-based
+		   - single HTML element
+		   - visual presentation created and modified programmatically through script
+		   - API does not support accessibility 
+	Svg - object-model based
+		- multiple graphical elements becoming part of DOM
+		- visual presentation created with markup and modified by CSS or through script
+		- directs support for accessibility
+8. progressive enhacement vs. graceful degradation
+	- Pe - starting with a baseline of usable functionality, then increasing the richness of the user experience step by step by testing for support for enhancements before applying athem.  
+		- You start by establishing a basic level of user experience that all browsers will be able to provide when rendering your web site, but you also build in more advanced functionality that will automatically be available to browsers that can use it.
+	- Gd - providing an alternative version of your functionality or making the user aware of shortcomings of a product as a safety measure.
+		 - the practice of building your web functionality so that it provides a certain level of user experience in more modern browsers, but it will also degrade gracefully to a lower level of user in experience in older browsers. 
+
+Degrading gracefully means looking back whereas enhancing progressively means looking forward whilst keeping your feet on firm ground.
+9. What is "SEMANTIC HTML"?
+	- opposite of using divs for everything. Using the new HTML5 elements like nav, article, header, footer, etc.
+	- tags to structure content
+	- Good for search engine optimization, accessibility, light code.
+10. How would you OPTIMIZE web assets?
+	- Concatenate and minify JS and CSS files
+	- CDN for jquery
+	- Cache
+	- JS at the bottom of the page
+11. Standards mode vs quirks mode
+	- Standards - all browsers have come to an agreement about how to handle styling and markup.
+	- Quirks - really old browsers. Gives them permission to continue to follow their busted way of rendering a web page.
+
+- HTML5 emphasizes semantics and structure
+- new input types 
+- new elements : <canvas> <svg> <video> 
+- old tags removd: <center> <applet> <frame> <strike>
+
+12. Box Model
+- In a document each element is represented liked a rectangular box.
+- in css, each of these boxes is described using the box model.
+- Each box has four edges: margin edge, border edge, padding edge, and content edge. 
+
+14. Accessibility vs. Usability
+	- Accessibility - product is available to as many people as possible.
+	- Usability - used by specified users to achieve certain goals with effectiveness and efficiency.
+	- Image tag more accessible - have title, alt, other attributes
+
+15. Make a sticky footer stay at the bottom of the window when scrolling?
+	- Give the footer element position: fixed; bottom: 0;
+	- Give the footer's parent element position: relative;
+
+16. Cookies vs sessionStorage vs localStorage
+	- Cookies = storing small amounts of website data
+	- sessionStorage = temporary data
+	- localStorage = persistant data
+
+
+-------------------------------------
+
+CSS 
+- css property names are not case-sensitive
+- html id and classes are case sensitive 
+- margin-top, margin-bottom have no effect on inline element
+- padding-top, padding-bottom has no effect on inline element
+- padding left, padding-right, margin-left and margin-right has effect on nline
+
+1. Center Horizontally
+	display: flex;
+	- this makes the element behave like a block element and lays out its content according to flexbox model. 
+
+	or
+
+
+	justify-content: center;
+
+2. Float - pushes an element to the sides of the page with text wrapped around it.
+i.e. float: left (left until the margin, padding, or border of another block-level elem is reached)
+
+3. position - 
+	- Absolute - places an element exactly where you want it. Relative to the element's parent. No parent, set to page.
+	- Relative - position an element relative to itself.
+	- Fixed - position relative to viewport or the browser window itself. 
+	- Static - position based on flow of the document. 
+
+4. pseudo class
+	- tell you the specific state of an element;
+	:hover, :visited, :focus, :nth-child, :link
+
+5. How would you load css resources conditionally?
+	- @import allows you to load/import stylesheet by using a path representing the location of the file.
+
+6. Why use sprites?
+	- having multiple images/icon, browser makes separate calls to the server for each one of them. sprite is technique to combine all of them.
+
+7. CSS Specificity - process of determing which CSS property is applied to an element. 
+which rules take precedence. 
+Inline style then ID then class then type then universal (universal has no specificity)
+
+8. Transitions - allows you to add an effect while changing from one style to another. 
+ 	- transition-delay: 2s;
+ 	- transition-duration: 2s;
+ 	- transition-property: opacity, left, top, height; 
+
+9. Display: none
+	- hides the element and the page displays as if that element was never there, taking no space;
+   Visibility: hidden - hides the element but takes up space
+
+
+
+   -------------------------------------
+Javascript
+1. How do you check if a form is empty?
+ - Depending on which version of HTML, HTML5 has this required attribute
+ <form>
+ 	<input type='text' required />
+ 	<input type='submit' />
+ </form>
+
+ or 
+
+function checkform(form){
+	var inputs = form.getElementsByTagName('input');
+	for (var i = 0; i < inputs.length; i++){
+		if(inputs[i].hasAttribute("required")){
+			if(inputs[i].value === ""){
+				alert("Please fill all required fields");
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+2. Variable scope, function scope
+	- all variables defined in a block are not visible from outside of the block.
+	- NO BLOCK SCOPE!
+	- FUNCTION SCOPE! - parameters and and variables defined in a function are not visible outside of the function and variable defined anywhere within a function is visible everywhere within the function.
+	-Variables defined within a function are LOCAL, and only exist in that function.
+	- Variables defined outside any functions are GLOBAL, can exist anywhere the webpage can grab it.
+	- Variables that are not defined (outside a function, without "var" proceeding), are AUTOMATIC GLOBAL.
+
+3. CLOSURES
+	- a function having access to the parent scope, even after the parent function has closed.
+	var add = function() {
+		var counter = 0;
+		return function() {
+			return counter += 1;
+		}
+	}
+4. Describe prototypical inheritance 
+5. Implement a function to determine if a DOM element is the descendant of another one or not
+6. Form submission 
+7.Explain clearfix
+8. What is hasLayout? 
+9. Compare inline Javascript and addEventListener
+	- inline js can only handle one event per element at a time
+	- multiple addEventListeners can be applied to a single element at a time.
+10. What is event.target?
+11. How do you make sure your page supports multiple browsers?
+	- Run code through markup validators
+	- Responsive sizing (media queries, view-port sizing, etc), meta-tag
+
+12. Difference between literal notation and object constructor?
+	- Object literal 
+		- is a pair of curly braces surrounding zero or more name/value pairs
+		var stooge = {
+			"first-name": "Jerome",
+			"last-name": "Howard"
+		};
+		retrieval done through .notation for compact. stooge.firstname
+	- Object constructor
+		var obj = new Object();
+		obj["type"] = "fancy";
+		obj.color = "blue";
+13. DOM Manipulation 
+	- document.getElementsByClassName
+	- document.getElementByID
+14. How is Javascript different from Java?
+	- Javascript is a scripting language designed to run only on the browser.
+	- JS is loosely typed (no declaration types); Java is strictly typed;
+15. Undefined and undeclared variables 
+	- undeclared not defined by a var statement
+	- undefined not initialiazed but declared. 
+16. Javascript module pattern
+	- The module pattern is a way of organizing and encapsulating code via a closure. 
+17. Difference between call and apply
+	- .apply and .call do the same thing, but .apply uses an array containing arguments for the target method as the second parameter.
+18. bind()
+	- Use this to create functions that when called have a particular value for this and therefore binding it to the original value of the target object
+19. Inheritance
+	- JS does not have classes - it uses prototypical inheritance
+20. Explain AJAX
+	- AJAX is used for asynchonously sending and receiving data without interfering with any processes occuring on the page. It is used for things like form submission, loading dynamic content assets and user interaction like chat rooms and multiplayer games. When data is returned from a server, a callback function is then executed that handles the data. AJAX stands for Asynchronous JavaScript and XML, which has become a bit outdated as most are using JSON these days. But, AJAJ just doesn’t have as nice a ring to it though.
+21. Describe event bubbling.
+	- Events are dispatched first at the event target, then propagate up through the target element's parent and ancestors, 'bubbling' all the way up to the document root.
+22. Attribute vs property
+	- An attribute carries information about an element in the form of a key value pair. A property is the key portion of that attribute.
+23. Document load event and document ready event
+	- Document ready fires when the html load has completed and the DOM is 'ready'. The window load fires when images and other page content have all finished loading.
+24. Same origin policy with regards to Javascript
+	- A script can read only the properties of windows and documents that are loaded from the same host, through the same port, and by the same protocol as the script itself.
+25. Event delegation
+	- Event delegation is assigning event handlers further up the DOM tree to capture events as they bubble up from children. For example, adding a click event listener to a <ul> to capture any clicks upon its child <li> elements.
+26. Hoisting 
+27. Promises and how theyre used 
+
+
+	var foo = [];
+	foo.push(1);
+	foo.push(2);
+	length = 2;
+
+	var foo = {};
+	foo.bar = 'hello';
+	length = undefined; 
+
+
+
+

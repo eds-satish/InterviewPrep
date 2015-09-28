@@ -1,0 +1,47 @@
+.class {
+	/* content properties */
+	width: 10px;
+	min-width: 10px;
+	max-width: 10px;
+	height: 20px;
+	min-height: 20px;
+	max-height:20px;
+
+	/* IMPORTANT TO KNOW */
+	/* 
+	 * ONE VALUE - applies to all 4 sides
+	 * TWO VALUES - 1. top and bottom and 2. to the left and right side
+	 * THREE VALUES - 1. top, 2. right and left and 3. to the bottom side
+	 * FOUR VALUES - 1.top,2. right, 3. bottom, 4. to the left side 
+
+	 * vertical | horizontal 
+	 * top | horizontal | bottom 
+	*/
+
+	/* padding properties */
+	/* negative values are not allowed */
+	/* either length or percentage */
+	padding-top: 5%;
+	padding-right: 10px;
+	padding-bottom:10px;
+	padding-left:10px;
+	padding:2px 1em 0 1em;
+
+	/* border properties */
+	border-top-width: medium;
+	border-bottom-width: medium
+	border: 1px solid black;
+	border-left-width: medium; /* can be thin, medium, thick */
+	border-width: inherit;
+
+	/* margin properties */
+	/* only one that has auto */
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin: 2px 1em 0 auto;
+	margin: 1em auto; /* 1em margin on top and bottom. box is horizontally centered */
+	margin: auto; /* auto horizontal center, 0 margin on top and bottom */
+
+}
