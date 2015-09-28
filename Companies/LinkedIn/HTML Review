@@ -73,6 +73,11 @@ Degrading gracefully means looking back whereas enhancing progressively means lo
 - in css, each of these boxes is described using the box model.
 - Each box has four edges: margin edge, border edge, padding edge, and content edge. 
 
+Padding = horizontal and vertical space that set around the content area of the targeted element. Padding is inside the box;
+
+Margin = the horizontal and vertical space between elements. With there isn't no margin around them, they will bump up against each other. Really, its the space outside
+
+
 14. Accessibility vs. Usability
 	- Accessibility - product is available to as many people as possible.
 	- Usability - used by specified users to achieve certain goals with effectiveness and efficiency.
@@ -95,7 +100,16 @@ CSS
 - html id and classes are case sensitive 
 - margin-top, margin-bottom have no effect on inline element
 - padding-top, padding-bottom has no effect on inline element
-- padding left, padding-right, margin-left and margin-right has effect on nline
+- padding left, padding-right, margin-left and margin-right has effect on inline
+- If the stylesheet has conflicting rules and they are equally specific, then CSS gives priority to the rule that is later in the stylesheet.
+
+
+A E - Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.)
+
+A > E	- Any E element that is a child (i.e. direct descendant) of an A element
+
+
+
 
 1. Center Horizontally
 	display: flex;
@@ -180,6 +194,38 @@ function checkform(form){
 			return counter += 1;
 		}
 	}
+
+	function Person(pName){
+		var _name = pName;
+
+		this.getName = function(){
+			return _name;
+		}
+	}
+
+	var me = new Person("Rodrigo");
+	me.getName()
+
+	for(var i = 0; i < 10; i++){
+		setTimeout(function() {
+			console.log(i);
+		}, 10);
+	}
+
+	//the answer will not used closure correctly, the
+	//numbers wont output from 0 - 9, but simply 
+	//print the number 10 times;
+
+	for(var i = 0; i < 10; i++){
+		setTimeout(function(){
+			console.log(i);
+		})(i),10)
+	}
+	//fixed by creating a immediately invoked function
+	//expression
+
+
+
 4. Describe prototypical inheritance 
 5. Implement a function to determine if a DOM element is the descendant of another one or not
 6. Form submission 
@@ -235,6 +281,18 @@ function checkform(form){
 25. Event delegation
 	- Event delegation is assigning event handlers further up the DOM tree to capture events as they bubble up from children. For example, adding a click event listener to a <ul> to capture any clicks upon its child <li> elements.
 26. Hoisting 
+	
+var myVar = "A global variable";
+function myFunction() {
+	console.log(myVar); //undefined - javascript will hoist that variable declaration up to the top of the function. it would be behind the scenes like var myVar; 
+	var myVar = "A local variable";
+	console.log(myVar);		   //local scope
+	console.log(window.myVar) //global scope
+}
+
+myFunction();
+
+
 27. Promises and how theyre used 
 
 
@@ -246,6 +304,33 @@ function checkform(form){
 	var foo = {};
 	foo.bar = 'hello';
 	length = undefined; 
+
+28. Pass by value or by reference 
+ - Primitive types (String, number, etc) are passed by value
+ - Objects are passed by reference
+
+
+29. Implementing fibonacci using memoization
+
+var memo = [];
+function fibo(n){
+	if(memo[n]){
+		return memo[n];
+	}
+	else if(n < 2){
+		return 1;
+	}
+	else {
+		return fibo(n-1) + fibo(n-2);
+	}
+	
+}
+
+30. - Difference between Jquery getelement by id vs Javascript.  
+ - document.getElementById('id') will return a raw DOM object;
+ 	- can used innerHTML
+ - $('#id') will return a JQuery object that wraps the DOM object and provides Jquery methods. css() or animate() 
+  - you can get the underlying DOM object from a JQuery object by writing $('#id')[0]
 
 
 

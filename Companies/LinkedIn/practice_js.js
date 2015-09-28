@@ -42,6 +42,43 @@ function cmp(a,b){
 console.log("2 = 3 is " + cmp(2,3));
 console.log("2 = 2 is " + cmp(2,2));
 
+/* How would you compare two objects in Javascript? 
+ * 2 ways to test equality for Strings and numbers
+ * its tested by comparing values, while objects 
+ * are compared by their reference. 
+ */ 
+
+ function isEqual(a,b){
+ 	var aProperty = Object.getOwnPropertyNames(a),
+ 		bProperty = Object.getOwnPropertyNames(b);
+
+ 	if(aProperty.length != bProperty.length){
+ 		return false;
+ 	}
+
+ 	for( var i = 0; i < aProperty.length; i++){
+ 		var propName = aProperty[i];
+
+ 		if(a[propName] !== b[propName]){
+ 			return false;
+ 		}
+ 	}
+ 	return true;
+ }
+
+ /* Reverse a string in Javascript */ 
+ function reverse(s){
+ 	var new_str = '';
+ 	for(var i = s.length - 1; i >= 0; i--){
+ 		new_str += s[i];
+ 	}
+ 	return new_str;
+ }
+
+ function reverse(s){
+ 	return s.split('').reverse().join('');
+ }
+
 
 
 /* Write a function that returns true or false when finding a substring in a string */
