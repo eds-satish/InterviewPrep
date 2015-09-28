@@ -7,6 +7,9 @@ I. **Javascript**
    
 II. **Java**
 
+III. **HTML**
+- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5?redirectlocale=en-US&redirectslug=HTML%2FHTML5
+
 
 
 III. **Other**
