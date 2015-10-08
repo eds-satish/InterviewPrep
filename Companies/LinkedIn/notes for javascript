@@ -1,0 +1,153 @@
+notes for javascript
+--------------------
+- whitespace ignored in javascript
+
+
+var node = document.getElementById('field1')
+var node = $('field1')
+
+Data Types of Javascript
+- Strings
+- Numbers
+- Booleans
+- Null
+- Undefined
+- weak typing meaning the contents of variable can change from one type to another.
+
+console.log(5 + 5 + "5" + 5) //"1055"
+console.log(5 + true) //6
+
+Objects 
+var stooge1 = { 
+	names: [
+		"Larry",
+		"Curly",
+		"Moe"
+	],
+	numbers: 3
+}
+
+- global variables are outside of the function
+- local variables defined in the function
+- functions are essentially objects
+
+Closure
+
+function whatIsIt() {
+	var num = 1;
+	var showIt = function(){
+		alert(num);
+	}
+	num++
+	return showIt;
+}
+var test = whatIsIt();
+test();
+
+function sumAll(){
+	var total=0;
+	for(var i=0; i < sumAll.arguments.length;i++){
+		total += sumAll.arguments[i]
+	}
+	return total;
+}
+
+Objects in JavaScript
+- Types of objects in client-side js 
+	- built-in objects(string,array)
+	- browser objects
+	- document objects
+	- user-defined objects
+	- reference types (objects, arrays, and functions)
+
+Objects Literals
+var robot2 = {
+	name: "Arnold",
+	model: "Terminator",
+	attack: function(){
+		alert('Hasta la vista');
+	}
+}
+
+- every object has a prototype property that gives it structure. 
+
+String.prototype.getThirdChar = function(){
+	return this.charAt(2);
+}
+
+var c = "Example".getThirChar();
+
+-----------------
+
+JavaScript DOM
+ 4 pieces of object models
+ 	1. Core JS language (data types, operators)
+ 	2. Core onjects related to data types(Date, String, Math, etc)
+ 	3. Browser objects
+ 	4. Document objects (document, form )
+
+ - the first <form> tag would be document.form[0]
+- $() is a wrapper function
+- document.getElementById()
+- document.getElementsByClassName()
+
+DOM Levels
+- DOM Level 0 - NS3's object model
+- DOM Level 1 - Maps all the HTML elements and generic node manipulation
+- DOM Level 2 - Maps all CSS properties
+
+var currentElement = document.getElementById('p1');
+currentElement = currentElement.firstChild;
+currentElement = currentElement.nextSibling;
+currentElement = currentElement.parentNode;
+
+getElementByName() -> deals with getting HTML elements identified by name attributes
+
+document.documentElement //html tag
+document.body //body
+
+var newNode = document.createElement('p'); //creates an element of the type by string 
+others include: createComment(string), createTextNode(string)
+
+Deleting Node
+var current = getElementById('p1');
+currentParent = current.parentNode;
+currentParent.removeChild(current);
+
+
+Event Models
+<p onclick="alert('Stop that')></p>
+
+html4 defines: onblur, onchange,onclick, onfocus, onkeydown,onkeypress, 
+onkeypress, onload, onmousedown, onmouseover, onmouseup, onsubmit
+
+Simple example
+<p id="p1">Please click me!</p>>
+<script>
+document.getElementById("p1").onclick = function() {
+	alert("hey stop clicking me");
+}
+
+
+<form name="form1">
+<input type="button" name="button1" value="press me"
+onclick="alert('Hey there');">
+</form>
+<script>
+	document.form1.button1.click();
+</script>
+
+
+object.addEventListener(event,handler,capture)
+object.removeEventListener(event,hanlder,capturePhase);
+
+document.getElementById("p2").addEventListener("mouse over", function(){
+	var evt = new Event("click", {
+		bubbles: true,
+		cancelable: true
+	});
+	document.getElementById("p1").dispatchEvent(evt);
+}, false)
+
+
+
