@@ -227,6 +227,7 @@ function checkform(form){
 
 
 4. Describe prototypical inheritance 
+	-  JavaScript only has one construct: objects. Each object has an internal link to another object called its prototype. That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this prototype chain.
 5. Implement a function to determine if a DOM element is the descendant of another one or not
 6. Form submission 
 7.Explain clearfix
@@ -254,6 +255,7 @@ function checkform(form){
 13. DOM Manipulation 
 	- document.getElementsByClassName
 	- document.getElementByID
+	- document.getElementByTagName
 14. How is Javascript different from Java?
 	- Javascript is a scripting language designed to run only on the browser.
 	- JS is loosely typed (no declaration types); Java is strictly typed;
@@ -264,8 +266,10 @@ function checkform(form){
 	- The module pattern is a way of organizing and encapsulating code via a closure. 
 17. Difference between call and apply
 	- .apply and .call do the same thing, but .apply uses an array containing arguments for the target method as the second parameter.
+	- apply is very similar to call(), except for the type of arguments it supports. You can use an arguments array instead of a named set of parameters. With apply, you can use an array literal, for example, fun.apply(this, ['eat', 'bananas']), or an Array object, for example, fun.apply(this, new Array('eat', 'bananas')).
+	- With apply, you can write a method once and then inherit it in another object, without having to rewrite the method for the new object.
 18. bind()
-	- Use this to create functions that when called have a particular value for this and therefore binding it to the original value of the target object
+	- Function.prototype.bind. Calling f.bind(someObject) creates a new function with the same body and scope as f, but where this occurs in the original function, in the new function it is permanently bound to the first argument of bind, regardless of how the function is being used.
 19. Inheritance
 	- JS does not have classes - it uses prototypical inheritance
 20. Explain AJAX
@@ -332,6 +336,23 @@ function fibo(n){
  - $('#id') will return a JQuery object that wraps the DOM object and provides Jquery methods. css() or animate() 
   - you can get the underlying DOM object from a JQuery object by writing $('#id')[0]
 
+31. Explain how this works in Javascript
 
+32. Explain how prototypical inheritance works
 
+33. Typical use case for anonymous functions
+
+34. Difference between host objects and native objects
+
+35. Difference between "attribute" and property
+
+36. Difference between document load event and document ready event?
+
+37. Pros of cons of using promises over callbacks
+
+38. Difference between mutuable and immutuable objects
+
+39. Difference between synchronous and asynchronous functions
+
+40. What is a event loop? 
 
