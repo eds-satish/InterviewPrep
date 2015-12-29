@@ -4,6 +4,7 @@ I. **Javascript**
   1. Resources
     - http://www.jstherightway.org/
     - Front End Development: https://github.com/h5bp/Front-end-Developer-Interview-Questions
+    - https://github.com/MaximAbramchuck/awesome-interviews
    
 II. **Java**
 
