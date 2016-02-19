@@ -1,4 +1,4 @@
-public class fuzzbuzz {
+public class FuzzBuzz {
 	public static void fuzzMethod(int num){
 		if(num % 5 == 0){
 			if(num % 3 == 0){

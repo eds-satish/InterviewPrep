@@ -1,4 +1,6 @@
 import java.util.*;
+//I.2 Given 2 strings, write a method to decide if one is a permutation of the other. 
+//Permutation is rearranging the words into a set. 
 
 public class checkPermutation {
 	private static String sortStr(String str){

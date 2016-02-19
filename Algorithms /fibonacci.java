@@ -1,5 +1,7 @@
 import java.util.*;
-public class fibonacci{
+//Runtime: O(2^n) where n is the total number of nodes. Each node has two children. If we do this n times, we roughly get
+//O(2^n) nodes. 
+public class Fibonacci{
 	public static int fibo(int n){
 		if(n < 2){
 			return n;
@@ -15,6 +17,7 @@ public class fibonacci{
 		}
 	}
 
+	//this is the bottom approach
 	public static int iterative_fast(int n){
 		int fib = 0;
 		int a = 1;
@@ -24,5 +27,21 @@ public class fibonacci{
 		}
 		return fib;
 	}
+
+	//memoization - O(n) because the tree now goes down to roughly 2n children. 
+	/*
+		int fibonacci(int n){
+			return fiboHelper(n, new int[n+1]);
+		}
+		int fiboHelper(int n, int[] memo){
+			if(n < 2) return n;
+
+			if(memo[n] == 0){
+				memo[n] = fiboHelper(n-1,memo) + fiboHelper(n-2,memo);
+			}
+			return memo[n];
+		}
+
+	*/ 
 	
 }
