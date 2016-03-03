@@ -38,7 +38,22 @@ public class Fibonacci_Nth {
 		System.out.println(memo(1));
 		System.out.println(memo(2));
 		System.out.println(memo(3));
-
 		
 	}
+
+	//memoization - O(n) because the tree now goes down to roughly 2n children. 
+	/*
+		int fibonacci(int n){
+			return fiboHelper(n, new int[n+1]);
+		}
+		int fiboHelper(int n, int[] memo){
+			if(n < 2) return n;
+
+			if(memo[n] == 0){
+				memo[n] = fiboHelper(n-1,memo) + fiboHelper(n-2,memo);
+			}
+			return memo[n];
+		}
+
+	*/ 
 }

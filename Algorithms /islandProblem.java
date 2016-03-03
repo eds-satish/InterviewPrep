@@ -13,7 +13,6 @@ public class islandProblem {
 		};
 
 		System.out.println(bestIsland(world));
-
 	}
 
 	public static int islandValue(int[][] world, boolean[][] visited, int row, int column){
@@ -55,20 +54,6 @@ public class islandProblem {
   		return bestIslandValue;	
 	} 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // 	public static int countIslands(int[][] world, boolean[][] visited, int row, int column){
