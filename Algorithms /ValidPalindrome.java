@@ -7,18 +7,15 @@ public class ValidPalindrome {
 		System.out.println(valid(c));
 	}
 	public static boolean valid(String str){ //str = "racecar"
-		boolean found = false;
+		boolean found = true;
 		str = str.trim();
 
 		if(str == " " || str.length() == 0) return true;
 		else if(str == null) throw new IllegalArgumentException("Invalid String");
 
 		for(int i = 0; i < str.length();++i){
-			if(str.charAt(i) == str.charAt(str.length()-i-1)){
-				found = true;
-			} else {
+			if(str.charAt(i) != str.charAt(str.length()-i-1)){
 				found = false;
-			}
 		}
 		return found;
 	}

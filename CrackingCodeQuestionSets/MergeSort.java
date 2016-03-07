@@ -48,8 +48,7 @@ public class MergeSort {
 		}
 	}
 
-	 
-
+	
 
 	//helper function to be called recursively
 	public static void merge(int[] left, int[] right, int[] resArr){

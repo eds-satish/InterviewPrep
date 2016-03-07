@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+//Multiples of 3 and 5
 class Problem1 {
 	public static int sum(int num){
 		int sum = 0;
