@@ -17,9 +17,7 @@ public class BFS {
         if(root == null){ //check to see if the root is empty 
             return result;
         }
-        
-        
-        
+            
         Queue<TreeNode>queue = new LinkedList<TreeNode>(); //queue to store tree node
     
         queue.add(root);
