@@ -1,11 +1,13 @@
 # InterviewPrep - A 20 day action plan for preparing for technical interviews. 
 
+As Eric Schmidt says, “Repetition doesn’t spoil the prayer.” 
+
 Hours per day: 4-5 hours per day
 
 ### :fire: Stage 1: Basic Knowledge (~5 days) :fire:
 - [ ] Review concepts of each data structure
-    - [ ] Write your own code of the ds implementation   
-    - [ ] Array, Stacks, Queues, Priority Queues, Linked List, Doubly Linked Lists, Hash Tables, Binary Search Tree, Binary Tree, Heap, Trie, Linked Hash Map
+    - [ ] Implement and write tests for them.   
+    - [ ] Array, Stacks, Queues, Priority Queues, Linked List, Doubly Linked Lists, Hash Tables, Binary Search Tree, Binary Tree, Heap, Set Trie, Linked Hash Map
 - [ ] Pros and cons of each data structure and when to use each of them. 
 - [ ] Understand basic algos
     - [ ] BFS, DFS, Sorting algos (Merge, Quicksort), Tree traversals. Code without hesitation.    
