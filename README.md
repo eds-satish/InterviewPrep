@@ -4,15 +4,19 @@ Hours per day: 4-5 hours per day
 
 ### :fire: Stage 1: Basic Knowledge (~5 days) :fire:
 - [ ] Review concepts of each data structure
+    - [ ] Write your own code of the ds implementation   
+    - [ ] Array, Stacks, Queues, Priority Queues, Linked List, Doubly Linked Lists, Hash Tables, Binary Search Tree, Binary Tree, Heap, Trie, Linked Hash Map
 - [ ] Pros and cons of each data structure and when to use each of them. 
 - [ ] Understand basic algos
-    - [ ] BFS, DFS, Sorting algos. Code without hesitation.    
+    - [ ] BFS, DFS, Sorting algos (Merge, Quicksort), Tree traversals. Code without hesitation.    
 - [ ] Pros and cons of each algo and when to use them. 
 - [ ] Be extremely proficient in time/space complexity analysis. 
-- [ ] Recommended Resources to Read: The Technical Interview Cheat Sheet, Big O Cheat Sheet
+    - [ ] Know Big O for each data structure   
+- [ ] Recommended Resources to Read: DonBeave Interview Repo, The Technical Interview Cheat Sheet, Big O Cheat Sheet
 
 ### :fire: Stage 2: General Interview Questions (~7 days) :fire:
 - Always better to write solution on paper. Second, if you can't handle the question, STOP & RESEARCH IT! 
+- Bits and bytes is definitely something I have to review
 - [ ] Go through Cracking the Coding Interview Questions
 - [ ] Leetcode 
 
