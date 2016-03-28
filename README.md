@@ -9,12 +9,12 @@ Hours per day: 4-5 hours per day
     - [ ] Implement and write tests for them.   
     - [ ] Array, Stacks, Queues (Priority Queues), Linked List (Single vs Doubly), Hash Tables, Trees(Binary Trees, BST,Tries), Heap, Set, Hash Map (handling collisions, hashed linked map)
 - [ ] String operations
-- [ ] Pros and cons of each data structure and when to use each of them. 
+- [x] Pros and cons of each data structure and when to use each of them. 
 - [ ] Understand basic algos
     - [ ] BFS, DFS, Dijkstra, Sorting algos (Merge, Quicksort), Tree traversals. Code without hesitation.    
-- [ ] Pros and cons of each algo and when to use them. 
-- [ ] Be extremely proficient in time/space complexity analysis. 
-    - [ ] Know Big O for each data structure   
+- [x] Pros and cons of each algo and when to use them. 
+- [x] Be extremely proficient in time/space complexity analysis. 
+    - [x] Know Big O for each data structure   
 - [ ] Recommended Resources to Read: ~~DonBeave Interview Repo~~, ~~The Technical Interview Cheat Sheet~~, ~~Big O Cheat Sheet~~, ~~http://discrete.gr/complexity/~~, https://en.wikipedia.org/wiki/Book:Data_structures,http://opendatastructures.org/ods-java/, ~~review Gayle's complexity chapter~~
 
 ### :fire: Stage 2: General Interview Questions (~7 days) :fire:
