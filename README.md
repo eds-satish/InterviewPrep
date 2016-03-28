@@ -16,7 +16,7 @@ Hours per day: 4-5 hours per day
 - [x] Pros and cons of each algo and when to use them. 
 - [x] Be extremely proficient in time/space complexity analysis. 
     - [x] Know Big O for each data structure   
-- [ ] Recommended Resources to Read: ~~DonBeave Interview Repo~~, ~~The Technical Interview Cheat Sheet~~, ~~Big O Cheat Sheet~~, ~~http://discrete.gr/complexity/~~, ~~https://en.wikipedia.org/wiki/Book:Data_structures~~,~~http://opendatastructures.org/ods-java/~~, ~~review Gayle's complexity chapter~~
+- [x] Recommended Resources to Read: ~~DonBeave Interview Repo~~, ~~The Technical Interview Cheat Sheet~~, ~~Big O Cheat Sheet~~, ~~http://discrete.gr/complexity/~~, ~~https://en.wikipedia.org/wiki/Book:Data_structures~~,~~http://opendatastructures.org/ods-java/~~, ~~review Gayle's complexity chapter~~
 
 ### :fire: Stage 2: General Interview Questions (~7 days) :fire:
 - Always better to write solution on paper. Second, if you can't handle the question, STOP & RESEARCH IT! 
