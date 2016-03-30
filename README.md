@@ -10,6 +10,7 @@ Hours per day: 4-5 hours per day
     - [ ] Array, Stacks, Queues (Priority Queues), Linked List (Single vs Doubly), Hash Tables, Trees(Binary Trees, BST,Tries), Heap, Set, Hash Map (handling collisions, hashed linked map)
     - [x] Review notes extensively.
 - [ ] String operations
+    - Watch https://www.youtube.com/watch?v=fIpliB-ton8   
 - [x] Pros and cons of each data structure and when to use each of them. 
 - [ ] Understand basic algos
     - [ ] ~~BFS~~, DFS, Dijkstra, Sorting algos (Merge, Quicksort), ~~Tree traversals.~~ Code without hesitation.    
