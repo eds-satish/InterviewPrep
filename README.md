@@ -8,11 +8,11 @@ Hours per day: 4-5 hours per day
 - [ ] Review concepts of each data structure
     - [ ] Implement and write tests for them.   
     - [ ] Array, Stacks, Queues (Priority Queues), Linked List (Single vs Doubly), Hash Tables, Trees(Binary Trees, BST,Tries), Heap, Set, Hash Map (handling collisions, hashed linked map)
-    - [ ] Review notes extensively.
+    - [x] Review notes extensively.
 - [ ] String operations
 - [x] Pros and cons of each data structure and when to use each of them. 
 - [ ] Understand basic algos
-    - [ ] BFS, DFS, Dijkstra, Sorting algos (Merge, Quicksort), Tree traversals. Code without hesitation.    
+    - [ ] ~~BFS~~, DFS, Dijkstra, Sorting algos (Merge, Quicksort), ~~Tree traversals.~~ Code without hesitation.    
 - [x] Pros and cons of each algo and when to use them. 
 - [x] Be extremely proficient in time/space complexity analysis. 
     - [x] Know Big O for each data structure   
