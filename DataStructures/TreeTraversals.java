@@ -13,12 +13,13 @@ public class TreeTraversals {
 		TreeNode root = new TreeNode(3);
 		root.left = new TreeNode(2);
 		root.right = new TreeNode(10);
-		//System.out.println(PreOrder(root));
+		root.left.right = new TreeNode(11);
+		//System.out.println(preOrder(root));
 		//System.out.println(recursivePreOrder(root));
 		//System.out.println(inOrder(root));
 		//System.out.println(recursiveInOrder(root));
-		//System.out.println(postOrder(root));
-		System.out.println(recursivePostOrder(root));
+		System.out.println(postOrder(root));
+		//System.out.println(recursivePostOrder(root));
 	}
 
 	private static List<Integer>result = new ArrayList<Integer>();
@@ -28,15 +29,19 @@ public class TreeTraversals {
 		if(root == null) return result;		
 		
 		Stack<TreeNode>stack = new Stack<TreeNode>();
-		stack.push(root);
 
-		while(!stack.isEmpty()){
-			root = stack.pop();
-			result.add(root.val);
+		while(true){
+			while(root != null){
+				stack.push(root);
+				result.add(root.val);
+				root = root.left;
+			}
+			if(stack.isEmpty()) break;
 
-			if(root.right != null) stack.push(root.right);
-			if(root.left != null) stack.push(root.left); //since its FIFO
-
+			if(root == null){
+				root = stack.pop();
+				root = root.right;
+			}
 		}
 		return result;
 	}
@@ -54,16 +59,18 @@ public class TreeTraversals {
 
 		Stack<TreeNode>stack = new Stack<TreeNode>();
 
-		while(root != null){
-			stack.push(root);
-			root = root.left;
-			while(root == null){ //when its null, we move onto the right child
-				if(stack.empty()) return result;
-				root = stack.pop();
-				result.add(root.val);
-				root = root.right;
+		while(true){
+			while(root != null){
+				stack.push(root);
+				root = root.left;
 			}
-			
+			if(stack.isEmpty()) break;
+
+			if(root == null){
+				root = stack.pop(); //topmost is parent
+    			result.add(root.val);
+    			root = root.right;
+			}
 		}
 		return result;
 	}
