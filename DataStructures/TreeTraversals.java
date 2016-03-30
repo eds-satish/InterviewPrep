@@ -13,30 +13,42 @@ public class TreeTraversals {
 		TreeNode root = new TreeNode(3);
 		root.left = new TreeNode(2);
 		root.right = new TreeNode(10);
-		System.out.println(inOrder(root));
+		//System.out.println(PreOrder(root));
+		//System.out.println(recursivePreOrder(root));
+		//System.out.println(inOrder(root));
+		//System.out.println(recursiveInOrder(root));
+		//System.out.println(postOrder(root));
+		System.out.println(recursivePostOrder(root));
 	}
 
 	private static List<Integer>result = new ArrayList<Integer>();
+
+	//////////ITERATIVE PREORDER TRAVERSAL////////
 	public static List<Integer> preOrder(TreeNode root){ //V,L,R
-
 		if(root == null) return result;		
-
-		Stack<TreeNode>stack = new Stack<TreeNode>();
-		stack.push(root); //visit the node
 		
+		Stack<TreeNode>stack = new Stack<TreeNode>();
+		stack.push(root);
+
 		while(!stack.isEmpty()){
-			TreeNode node = stack.pop();
-			result.add(node.val);
+			root = stack.pop();
+			result.add(root.val);
 
-			if(node.left != null) preOrder(node.left);
+			if(root.right != null) stack.push(root.right);
+			if(root.left != null) stack.push(root.left); //since its FIFO
 
-			if(node.right != null) preOrder(node.right);
-			
 		}
 		return result;
 	}
 
+	//////////RECURSIVE PREORDER TRAVERSAL////////
+	public static List<Integer> recursivePreOrder(TreeNode root){ //V,L,R
+		if(root != null) helperPreOrder(root);
 
+		return result;
+	}
+
+	//////////ITERATIVE INORDER TRAVERSAL////////
 	public static List<Integer> inOrder(TreeNode root){ //L,V,R
 		if(root == null) return result;
 
@@ -45,7 +57,7 @@ public class TreeTraversals {
 		while(root != null){
 			stack.push(root);
 			root = root.left;
-			while(root == null){
+			while(root == null){ //when its null, we move onto the right child
 				if(stack.empty()) return result;
 				root = stack.pop();
 				result.add(root.val);
@@ -56,25 +68,74 @@ public class TreeTraversals {
 		return result;
 	}
 
-	public static List<Integer> iterativeInOrder(TreeNode root) {
-        if(root != null){
-            helperFcn(root);
-        }
+	//////////RECURSIVE INORDER TRAVERSAL////////
+	public static List<Integer> recursiveInOrder(TreeNode root) {
+        if(root != null) helperInOrder(root);
+
         return result;
     }
 
-    private static void helperFcn(TreeNode node){
-        
-        if(node.left != null){
-            helperFcn(node.left);
-        }
+	//////////ITERATIVE POSTORDER TRAVERSAL////////
+    public static List<Integer> postOrder(TreeNode root){
+    	if(root == null) return result;
 
+    	Stack<TreeNode>stack = new Stack<TreeNode>(); 
+    	Set<TreeNode>visited = new HashSet<TreeNode>(); 
+    	
+    	while(true){
+    		while(root != null){ //leftwise direction
+    			stack.push(root);
+    			root = root.left;
+    		}
+
+    		if(stack.isEmpty()) break; //break out since you have finished
+
+    		root = stack.peek().right; //rightwise direction
+    		/* Essentially visited.contains(root) is the case where you need to pop off the root and you have already
+    		 * visited its right child. So it adds the root to last part of result
+    		 */
+    		if(root == null || visited.contains(root)){
+    			root = stack.pop(); //topmost is parent
+    			result.add(root.val);
+    			visited.add(root); //for rightside case
+    			root = null;
+    		}
+    	}
+    	return result;
+    }
+
+    //////////RECURSIVE INORDER TRAVERSAL////////
+    public static List<Integer> recursivePostOrder(TreeNode root) {
+        if(root != null) helperPostOrder(root);
+        
+        return result;
+    }
+
+    //////////Helper functions////////
+    private static void helperPreOrder(TreeNode node){ 
+        result.add(node.val);
+    
+        if(node.left != null) helperPreOrder(node.left);
+      
+        if(node.right != null) helperPreOrder(node.right);     
+    }
+
+    private static void helperInOrder(TreeNode node){     
+        if(node.left != null) helperInOrder(node.left);
+      
         result.add(node.val);
 
-        if(node.right != null){
-            helperFcn(node.right);
-        }
+        if(node.right != null) helperInOrder(node.right);     
     }
+
+    private static void helperPostOrder(TreeNode node){ 
+        if(node.left != null) helperPostOrder(node.left);
+
+        if(node.right != null) helperPostOrder(node.right);
+     
+        result.add(node.val);
+    }
+
 
 }
 
