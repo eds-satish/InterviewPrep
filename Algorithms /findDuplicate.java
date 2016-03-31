@@ -48,11 +48,8 @@ public class findDuplicate {
 		if(arr.length == 0 || arr == null) return false;
 
 		for(int i: arr){
-			if(set.contains(i)){
-				return true;
-			} else {
-				set.add(i);
-			}
+			if(set.contains(i)) return true;
+			set.add(i);
 		}
 		return false;
 	}
