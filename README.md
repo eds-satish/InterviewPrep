@@ -25,8 +25,8 @@ Hours per day: 4-5 hours per day
 - [ ] Go through Cracking the Coding Interview Questions
 - [ ] Leetcode
 - [ ] Mission-Peace Repo
-- [ ] http://javarevisited.blogspot.sg/2015/01/top-20-string-coding-interview-question-programming-interview.html
-- [ ] http://javarevisited.blogspot.sg/2015/06/top-20-array-interview-questions-and-answers.html
+- [x] http://javarevisited.blogspot.sg/2015/01/top-20-string-coding-interview-question-programming-interview.html
+- [x] http://javarevisited.blogspot.sg/2015/06/top-20-array-interview-questions-and-answers.html
 - [ ] http://javarevisited.blogspot.sg/search/label/data%20structure%20and%20algorithm?max-results=3
 
 
