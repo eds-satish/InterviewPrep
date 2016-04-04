@@ -27,7 +27,7 @@ Hours per day: 4-5 hours per day
 - [ ] Mission-Peace Repo
 - [x] http://javarevisited.blogspot.sg/2015/01/top-20-string-coding-interview-question-programming-interview.html
 - [x] http://javarevisited.blogspot.sg/2015/06/top-20-array-interview-questions-and-answers.html
-- [ ] http://javarevisited.blogspot.sg/search/label/data%20structure%20and%20algorithm?max-results=3
+- [ ] http://javarevisited.blogspot.sg/2013/03/top-15-data-structures-algorithm-interview-questions-answers-java-programming.html
 
 
 ### :fire: Stage 3: Practice Time Interviews (~ 4 days) :fire:
