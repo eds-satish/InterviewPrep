@@ -7,24 +7,25 @@ import java.util.*;
 
 
 public class group_anagrams {
+	public static void main(String[] args){
+		String[] arr = {"eat", "tea", "tan", "ate", "nat", "bat"};
+		System.out.println(group_anagrams(arr));
+	}
 
-	public List<List<String>> group_anagrams(String[] strs){
+	public static List<List<String>> group_anagrams(String[] strs){
 
-		Arrays.sort(strs);
-		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
+		Hashtable<String,List<String>>map = new Hashtable<String,List<String>>();
+		for(int i = 0; i < strs.length;++i){
+			String origWord = strs[i];
+			char[] indexChar = origWord.toCharArray();
+			Arrays.sort(indexChar);
+			String sortedStr = String.valueOf(indexChar);
 
-		for(int i = 0; i < strs.length; i++){
-			String location = strs[i];
-			char[] charArray = strs[i].toCharArray();
-
-			Arrays.sort(charArray);
-			String sortedString = String.valueOf(charArray);
-
-			List<String>tempList = result.getOrDefault(sortedString, new ArrayList<String>());
-			tempList.add(location);
-			result.put(sortedString,tempList);
+			List<String>tempList = map.getOrDefault(sortedStr, new ArrayList<String>()); //returns list or emptry list if null
+			tempList.add(origWord);
+			map.put(sortedStr,tempList);
 		}
-		return new ArrayList<>(result.values());
+		return new ArrayList<>(map.values());
 	}
 
 }

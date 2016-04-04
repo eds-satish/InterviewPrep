@@ -8,8 +8,8 @@ public class ArrayPractice {
 		//System.out.printf("Missing number in array %s is %d %n", 
                            //Arrays.toString(arr), missing);
 
-		int[] input = {1};
-		System.out.println(hasDuplicate(input));
+		int[] input = {1,4,1,2,5,4,2,3,100,2144,2,};
+		System.out.println(removeDuplicates(input));
 
 	}
 
@@ -51,7 +51,7 @@ public class ArrayPractice {
 	//Remove all duplicates from array
 	public static ArrayList<Integer> removeDuplicates(int[] arr){
 		ArrayList<Integer>res = new ArrayList<Integer>();
-		Set<Integer>set = new HashSet<Integer>();
+		Set<Integer>set = new LinkedHashSet<Integer>(); //maintains
 
 		for(int i = 0; i < arr.length;++i){
 			if(!set.contains(arr[i])){
@@ -248,7 +248,11 @@ public class ArrayPractice {
 		return false;
 	}
 
-	//17, 18,19,20,22,23,24,25,26,27,28
+	//Merge sorted array
+
+
+	
+	//17,18,19,20,23,24,25,26,27,28
 
 
 
