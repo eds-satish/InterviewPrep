@@ -4,7 +4,8 @@
 //In addition, if the compressed string would not become smaller than the original string, your method should return the original string. (Error case)
 
 
-//LOGIC: Loop through the string, keeping track of the count of each character
+import java.util.*;
+
 public class StringCompressed {
 
 	public static void main(String[] args){
@@ -15,15 +16,15 @@ public class StringCompressed {
 	public static String compressed(String str){
 		StringBuilder newStr = new StringBuilder(); //since its mutable so you can easily changed it 
 		int letterCount = 0;
+		int len = str.length();
 		
-		for(int i = 0; i < str.length(); ++i){
+		for(int i = 0; i < len; ++i){
 			letterCount++;
 			//you would append when the character is different
-			if( (i+1) >= str.length() || str.charAt(i) != str.charAt(i+1)){ //i+1 takes the index out of bounds error
+			if( (i+1) >= len || str.charAt(i) != str.charAt(i+1)){ //i+1 takes the index out of bounds error
 				newStr.append(str.charAt(i));
 				newStr.append(letterCount);
-				//reset the count back to 0
-				letterCount = 0;
+				letterCount = 0; //reset count for new char
 			}
 		}
 		return newStr.length() < str.length() ? newStr.toString() : str;

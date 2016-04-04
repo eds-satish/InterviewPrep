@@ -5,15 +5,15 @@ import java.io.*;
 
 public class StringPractice {
 	public static void main(String[] args){
-		//String str = "Javav";
-		//int[] arr = {1,1,3};
-		//String str = "-123";
+		String str = "aaaaaaaaaaaaaaaaabbbbcddddeeeeee";
+		String str2 = "Alex is awesome";
+		System.out.println(countWord(str2));		
 		
 	}
 
 
 	//Print duplicate characters from String
-	public static void duplicate(String str){
+	public static void printDuplicate(String str){
 		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
 		for(int i = 0; i < str.length();++i){
 			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
@@ -27,7 +27,7 @@ public class StringPractice {
 	}
 
 	//Print nonduplicate numnber in array
-	public static int nonDuplicate(int[] arr){
+	public static int printNonDuplicate(int[] arr){
 		int res = 0;
 		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
 		for(int i = 0; i < arr.length;++i){
@@ -138,33 +138,116 @@ public class StringPractice {
 		}
         return (int) res * operation;
 	}
-	//TODO: TOMORROW
 	
 	//Find all permutations of a String
+	public static void permutation(String input){ //review more
+		permutate("",input);
+	}
+	//keeping one character fix and permutate on others 
+	private static void permutate(String res, String word){
+		//Base Case: when the word is empty just return that
+		if(word.isEmpty()) System.out.println(res);
+
+		else {
+			for(int i = 0; i < word.length(); ++i){
+				//res + word.charAt(i) is the fix char
+				permutate(res + word.charAt(i), word.substring(0,i) + word.substring(i+1,word.length()));
+			}
+		}
+
+	}
 
 	//Reverse words in a sentence
+	public static String reverseSentence(String str){
+		if(str == null) throw new IllegalArgumentException("String invalid!");
+		String[] arr = str.split(" +"); //split on more than 1 space
+		StringBuilder res = new StringBuilder();
+
+		for(int i = arr.length-1; i >= 0; i--){
+			res.append(arr[i].trim() + " ");
+		}
+		return res.toString();
+	}
 
 	//Check if string is a palindrome
+	public static boolean findPalindrome(String str){
+		boolean flag = true;
+		if(str == null) throw new IllegalArgumentException("Str is null");
 
-	//How to remove duplicate characters from string
+		if(str.length() == 1) flag = true;
+
+		for(int i = 0; i < str.length();++i){
+			if(str.charAt(i) != str.charAt(str.length()-1-i)) flag = false;
+		}
+		return flag;
+	}
+
+	//How to remove an specific character from String
+	public static String removeChar(String str, char value){
+		StringBuilder res = new StringBuilder();
+		for(int i = 0; i < str.length();++i){
+			if(str.charAt(i) != value) res.append(str.charAt(i) + "");
+		}
+		return res.toString();
+	}
+	//Remove all duplicate characters in String, remember to used a set
+	//Input: 'Bananas'
+	//Output: 'Bans'
+	public static String allDuplicate(String str){
+		Set<Character>set = new HashSet<Character>();
+		StringBuilder res = new StringBuilder();
+		for(int i = 0; i < str.length();++i){
+			if(!set.contains(str.charAt(i))){
+				set.add(str.charAt(i));
+				res.append(str.charAt(i) + "");
+			} 
+		}
+		return res.toString();
+	}
 
 	//Check if a String is a valid shuffle of two strings
+	// public static boolean validShuffle(String str1, String str2, String str3){
+	// 	if(str1.length() + str2.length() != str3.length()) return false;
 
-	//Write a program if a String contains another String eg. indexOf
+	// }
+
+
+
+	//Write a program if a String contains another String eg. indexOf - FINISH
 
 	//Return highest occured character in String
+	public static char highestOccur(String str){
+		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
+		int maxCount = 0;
+		for(int i = 0; i < str.length();++i){
+			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
+			else map.put(str.charAt(i),map.get(str.charAt(i))+1);
 
-	//Write a program to remove a given character in String
+			if(map.get(str.charAt(i)) > maxCount) maxCount = map.get(str.charAt(i));
+		}
+		for(Map.Entry<Character,Integer>entry: map.entrySet()){
+			if(entry.getValue() == maxCount) return entry.getKey();
+		}
+		throw new IllegalArgumentException("no occurence found");		
+	}
 
-	//Write a program to find longest palindrome in String
-
-	//Write a porgram to sort String on their length
-
-
-
-
+	//Count Word in String
+	public static int countWord(String str){
+		int count = 0;
+		for(int i = 0; i < str.length();++i){
+			if(str.charAt(i) == ' ') count ++;
+		}
+		count++; //account for last one
+		return count;
+	}
 
 	
+
+	//Find longest palindrome in String - FINISH 
+
+	//Sort String on their length - FINISH
+
+
 }
 
 class ProgrammingTest {
