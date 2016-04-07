@@ -1,12 +1,7 @@
 import java.io.*;
 import java.util.*;
-
-/*
- * Primes.upTo(5) => [2, 3, 5]
- * Primes.upTo(10) => [2, 3, 5, 7]
- * Primes.upTo(11) => [2, 3, 5, 7, 11]
- * Primes.upTo(-1) => []
- */
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class Primes {
   
@@ -42,6 +37,8 @@ public class Primes {
 
 
 class Solution {
+
+  @Test
   public static void assertArrayListEquals(ArrayList<Integer> actual, ArrayList<Integer> expected) {
     if(expected.equals(actual)){
       System.out.println("PASS!");
@@ -51,19 +48,11 @@ class Solution {
 
     }
   }
-    
-    // if expected is the same as actual (same values same location)
-      // print "PASS"
-    // else
-      // print "Expected: [4, 5]"
-      // print "Actual: [1, 2, 3]"
 
-  
-  
   public static void main(String[] args) {
-    System.out.println(Primes.upTo(2));
+    //System.out.println(Primes.upTo(2));
      
-    assertArrayListEquals(Primes.upTo(-1), new ArrayList<Integer>());
+    //assertArrayListEquals(Primes.upTo(-1), new ArrayList<Integer>());
     
     ArrayList<Integer>arr = new ArrayList<Integer>();
     arr.add(2);
@@ -71,19 +60,6 @@ class Solution {
     arr.add(5);
     assertArrayListEquals(Primes.upTo(5),arr);
 
-    ArrayList<Integer>arr1 = new ArrayList<Integer>();
-    arr1.add(2);
-    arr1.add(3);
-    arr1.add(5);
-    arr1.add(7);
-    assertArrayListEquals(Primes.upTo(10),arr1);
-    
-    ArrayList<Integer>arr2 = new ArrayList<Integer>();
-    arr2.add(2);
-    arr2.add(3);
-    arr2.add(5);
-    arr2.add(7);
-    arr2.add(11);    
-    assertArrayListEquals(Primes.upTo(11),arr2);    
+      
   }
 }

@@ -9,9 +9,39 @@ public class ArrayPractice {
                            //Arrays.toString(arr), missing);
 
 		int[] input = {1,4,1,2,5,4,2,3,100,2144,2,};
-		System.out.println(removeDuplicates(input));
+		//System.out.println(removeDuplicates(input));
+		System.out.println(memo(0));
+		System.out.println(memo(1));
+		System.out.println(memo(2));
+		System.out.println(memo(3));
+	}
+
+	//Non-optimized recursive solution
+	//Runtime: Since each fib call makes two calls, we need to think of it as a binary tree.
+	//The height of a binary tree is O(n) which means the toal number of nodes is 2^n, so total runtime is O(2^n).
+	public static int fibo(int num){
+		if(num < 2) return num;
+		else return fibo(num-1) + fibo(num-2);
 
 	}
+
+	//Optimized recursive fibonacci solution
+	//Runtime: O(n) time total and O(n) space. 
+	public static int memo(int num){
+		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
+		int res = 0;
+		
+		if(num < 2) return num;
+
+		if(map.containsKey(num)) return map.get(num);
+
+		res = memo(num-1) + memo(num-2);
+		map.put(num,res);
+
+		return res;
+	}
+
+
 
 	//Recursive Factorial
 	public static int recursive_factorial(int number){
