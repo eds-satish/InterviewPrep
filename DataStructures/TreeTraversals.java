@@ -39,7 +39,7 @@ public class TreeTraversals {
 			if(stack.isEmpty()) break;
 
 			if(root == null){
-				root = stack.pop();
+				root = stack.pop(); //in order to get access to its parent to go to the right side of its parent
 				root = root.right;
 			}
 		}

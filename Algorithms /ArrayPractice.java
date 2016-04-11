@@ -1,19 +1,15 @@
 import java.util.*;
 public class ArrayPractice {
 	public static void main(String[] args){
-		int[] arr1 = {1, 2, 3, 5}; 
+		int[] arr1 = {1, 1, 2,2,3}; 
 		int[] arr = {2147483647, 40, 2147483647};
 
 		int missing = findMissingNum(arr, 5);
 		//System.out.printf("Missing number in array %s is %d %n", 
                            //Arrays.toString(arr), missing);
 
-		int[] input = {1,4,1,2,5,4,2,3,100,2144,2,};
-		//System.out.println(removeDuplicates(input));
-		System.out.println(memo(0));
-		System.out.println(memo(1));
-		System.out.println(memo(2));
-		System.out.println(memo(3));
+		int[] input = {2,2,4,4,3};
+		System.out.println(oddOccurenceXOR(input));
 	}
 
 	//Non-optimized recursive solution
@@ -40,9 +36,7 @@ public class ArrayPractice {
 
 		return res;
 	}
-
-
-
+	
 	//Recursive Factorial
 	public static int recursive_factorial(int number){
 		if(number <= 1) return 1;
@@ -104,6 +98,19 @@ public class ArrayPractice {
 			if(entry.getValue() % 2 == 1) return entry.getKey(); //check which have a odd value
 		}
 		throw new IllegalArgumentException("Invalid entry");
+	}
+
+	public static int oddOccurenceXOR(int[] arr){
+		/* XOR Properties
+		 * 1. If you xor an number with it self you get 0
+		 * 2. If you xor an number with 0 you get the number itself
+		 */
+		int res = 0;
+		for(int i = 0; i < arr.length;++i){
+			res = res ^ arr[i];
+		} 
+		return res;
+
 	}
 
 	//Find the missing number in an area of 100 integers
@@ -277,11 +284,57 @@ public class ArrayPractice {
 		}
 		return false;
 	}
+	//Remove duplicate (IN PLACE) from Sorted Array, return the new length of array
+	public static int removeDuplicate(int[] nums){
+		if(nums.length < 2) return nums.length;
+
+		int indexBefore = 1;
+		for(int i = 0; i < nums.length-1;++i){
+			if(nums[i] == nums[i+1]) continue;
+			else {
+				nums[indexBefore] = nums[i+1];
+				indexBefore++;
+			}
+		}
+		return indexBefore;
+	}
+
+	//Given an array and a value, remove all instances of that value in place and return the new length.
+	public int removeElement(int[] nums, int val){
+		int indexChange = 0;
+		for(int i = 0; i < nums.length;++i){
+			if(nums[i] != val) nums[indexChange++] = nums[i];
+		}
+		return indexChange;
+	}
+
+	//Say you have an array for which the ith element is the price of a given stock on day i.
+	//If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), 
+	//design an algorithm to find the maximum profit.
+	public int maxProfit(int[] prices) {
+        if(prices == null || prices.length == 0) return 0;
+        //pattern is to buy the smallest num, and sell the largest one
+        //max profit is subtracting the sell with the buy
+        int maxProfit = 0;
+        int buy = prices[0];
+        for(int i = 1; i < prices.length;++i){
+            if(prices[i] > buy){
+                if((prices[i]-buy) > maxProfit)
+                    maxProfit = prices[i] - buy; //only update maxProfit if you get a greater maxProfit
+            } else {
+                buy = prices[i];
+            }
+        }
+        return maxProfit;
+    }
+
+
+
+
+
 
 	//Merge sorted array
 
-
-	
 	//17,18,19,20,23,24,25,26,27,28
 
 

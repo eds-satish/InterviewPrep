@@ -11,7 +11,6 @@ public class StringPractice {
 		
 	}
 
-
 	//Print duplicate characters from String
 	public static void printDuplicate(String str){
 		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
@@ -26,21 +25,6 @@ public class StringPractice {
 		}
 	}
 
-	//Print nonduplicate numnber in array
-	public static int printNonDuplicate(int[] arr){
-		int res = 0;
-		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
-		for(int i = 0; i < arr.length;++i){
-			if(!map.containsKey(arr[i])) map.put(arr[i],1);
-			else map.put(arr[i],map.get(arr[i])+1);
-		}
-		for(Map.Entry<Integer,Integer>entry: map.entrySet()){
-			if(entry.getValue() == 1){
-				res = entry.getKey();
-			}
-		}
-		return res;
-	}
 
 	//Find first nonrepeated character
 	public static char getFirstNonRepeatedChar(String str){
@@ -139,23 +123,6 @@ public class StringPractice {
         return (int) res * operation;
 	}
 	
-	//Find all permutations of a String
-	public static void permutation(String input){ //review more
-		permutate("",input);
-	}
-	//keeping one character fix and permutate on others 
-	private static void permutate(String res, String word){
-		//Base Case: when the word is empty just return that
-		if(word.isEmpty()) System.out.println(res);
-
-		else {
-			for(int i = 0; i < word.length(); ++i){
-				//res + word.charAt(i) is the fix char
-				permutate(res + word.charAt(i), word.substring(0,i) + word.substring(i+1,word.length()));
-			}
-		}
-
-	}
 
 	//Reverse words in a sentence
 	public static String reverseSentence(String str){

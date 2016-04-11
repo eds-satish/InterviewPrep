@@ -12,6 +12,7 @@ public class LinkedList {
         node.next.next = new ListNode(7);
         System.out.println(reverseLinkedList(node));
     }
+    
     //reverse LinkedList
     public static ListNode reverseLinkedList(ListNode node){
         if(node == null) throw new IllegalArgumentException("Head is null");
@@ -26,7 +27,8 @@ public class LinkedList {
             prev = curr; //iterate through list
             curr = next; //iterate through list
         }
-        node = prev; //set head
+        node = prev; //set head for last node
+        
         return node;
     }
 
@@ -104,9 +106,6 @@ public class LinkedList {
         return 1 + recursiveFindLen(node.next);
     }
 
-   
-
-
     //delete node in the middle of a linked list 
     public boolean deleteMiddleNode(ListNode middleNode){ //n
         if(middleNode == null || middleNode.next == null) return false;
@@ -141,6 +140,38 @@ public class LinkedList {
         slow.next = slow.next.next; //skips the nth element you need to remove
         return head;
 
+    }
+
+    //Given a SORTED list, delete all duplicates
+    public static ListNode deleteDuplication(ListNode head){
+        if(head == null || head.next == null) return head;
+
+        ListNode curr = head;
+        while(curr.next != null){
+            if(curr.val == curr.next.val){
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next; //move along
+            }
+        }
+        return head;
+    }
+
+    //merge two lists RECURSIVELY 
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2){
+        if(l1 == null) return l2;
+        if(l2 == null) return l1;
+
+        ListNode start;
+
+        if(l1.val < l2.val){
+            start = l1;
+            start.next = mergeTwoLists(l1.next, l2);
+        } else {
+            start = l2;
+            start.next = mergeTwoLists(l1,l2.next);
+        }
+        return start;
     }
 
 

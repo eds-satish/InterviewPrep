@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 
-public class StringToInteger {
+public class StringToInteger { 
 	public static void main(String[] args){
 		String str = "+14";
 		convert(str);
