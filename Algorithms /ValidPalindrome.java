@@ -7,7 +7,6 @@ public class ValidPalindrome {
 		System.out.println(valid(c));
 	}
 	public static boolean valid(String str){ //str = "racecar"
-		boolean found = true;
 		//for cases like ".a"
 		//removes all characters not in a-zA-Z0-9
 		str = str.trim().replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
@@ -17,10 +16,8 @@ public class ValidPalindrome {
 		else if(str == null) throw new IllegalArgumentException("Invalid String");
 
 		for(int i = 0; i < str.length();++i){
-			if(str.charAt(i) != str.charAt(str.length()-i-1)){
-				found = false;
-			}
+			if(str.charAt(i) != str.charAt(str.length()-i-1)) return false;
 		}
-		return found;
+		return true;
 	}
 }

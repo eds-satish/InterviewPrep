@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AnagramBtwString {
+public class AnagramTwoWords {
 	
 	public static void main(String[]args){
 		String s1 = "word";

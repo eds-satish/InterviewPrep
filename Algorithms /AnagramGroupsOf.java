@@ -1,5 +1,5 @@
 import java.util.*;
-public class GroupOfAnagrams{
+public class AnagramGroupsOf {
 	//Given an array of strings, return all groups of strings
 	//that are anagrams to each other.
   public static List<String> findAnagrams(String[] strs){

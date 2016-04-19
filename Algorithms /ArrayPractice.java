@@ -1,17 +1,5 @@
 import java.util.*;
 public class ArrayPractice {
-	public static void main(String[] args){
-		int[] arr1 = {1, 1, 2,2,3}; 
-		int[] arr = {2147483647, 40, 2147483647};
-
-		int missing = findMissingNum(arr, 5);
-		//System.out.printf("Missing number in array %s is %d %n", 
-                           //Arrays.toString(arr), missing);
-
-		int[] input = {2,2,4,4,3};
-		System.out.println(oddOccurenceXOR(input));
-	}
-
 	//Non-optimized recursive solution
 	//Runtime: Since each fib call makes two calls, we need to think of it as a binary tree.
 	//The height of a binary tree is O(n) which means the toal number of nodes is 2^n, so total runtime is O(2^n).
@@ -300,7 +288,7 @@ public class ArrayPractice {
 	}
 
 	//Given an array and a value, remove all instances of that value in place and return the new length.
-	public int removeElement(int[] nums, int val){
+	public static int removeElement(int[] nums, int val){
 		int indexChange = 0;
 		for(int i = 0; i < nums.length;++i){
 			if(nums[i] != val) nums[indexChange++] = nums[i];
@@ -311,7 +299,7 @@ public class ArrayPractice {
 	//Say you have an array for which the ith element is the price of a given stock on day i.
 	//If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), 
 	//design an algorithm to find the maximum profit.
-	public int maxProfit(int[] prices) {
+	public static int maxProfit(int[] prices) {
         if(prices == null || prices.length == 0) return 0;
         //pattern is to buy the smallest num, and sell the largest one
         //max profit is subtracting the sell with the buy
@@ -328,14 +316,48 @@ public class ArrayPractice {
         return maxProfit;
     }
 
+    //Find the second largest element in array
+    public static int secondElem(int[] arr){
+    	int first = 0, second = 0;
+
+    	if(arr[0] > arr[1]){
+    		first = arr[0];
+    		second = arr[1];
+    	} else {
+    		first = arr[1];
+    		second = arr[0];
+    	}
+
+    	for(int i = 2; i < arr.length;++i){
+    		if(arr[i] > first){
+    			second = first; //replace first to second
+    			first = arr[i];
+    		} else if(arr[i] < first && arr[i] > second){ //dont care if arr[i] < second since its second Largest
+    			second = arr[i];
+    		} 
+    	}
+    	return second;
+    }
+
+    public static void main(String[] args){
+		int[] arr1 = {1, 1, 2,2,3}; 
+		int[] arr = {2147483647, 40, 2147483647};
+
+		int missing = findMissingNum(arr, 5);
+		//System.out.printf("Missing number in array %s is %d %n", 
+                           //Arrays.toString(arr), missing);
+
+		int[] res = {9459, 9575, 5692, 1305, 1942, 9012};
+		System.out.println(secondElem(res));
+
+	}
+ 
 
 
 
 
 
-	//Merge sorted array
 
-	//17,18,19,20,23,24,25,26,27,28
 
 
 

@@ -136,18 +136,6 @@ public class StringPractice {
 		return res.toString();
 	}
 
-	//Check if string is a palindrome
-	public static boolean findPalindrome(String str){
-		boolean flag = true;
-		if(str == null) throw new IllegalArgumentException("Str is null");
-
-		if(str.length() == 1) flag = true;
-
-		for(int i = 0; i < str.length();++i){
-			if(str.charAt(i) != str.charAt(str.length()-1-i)) flag = false;
-		}
-		return flag;
-	}
 
 	//How to remove an specific character from String
 	public static String removeChar(String str, char value){

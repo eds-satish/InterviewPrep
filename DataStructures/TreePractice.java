@@ -12,9 +12,9 @@ public class TreePractice {
 	//descendant of itself
 	public TreeNode lCA(TreeNode root, TreeNode p, TreeNode q){
 		TreeNode node = root;
-		if(node.val > p.val && node.val < q.val) return root;
-		else if(node.val > p.val && node.val > q.val) return lCA(root.left,p,q); //taking in consideration a descendant of itself
-		else if(node.val < p.val && node.val < q.val) return lCA(root.right,p,q);
+		if(node.val > p.val && node.val < q.val) return root; //first case if the lca is the root
+		else if(node.val > p.val && node.val > q.val) return lCA(root.left,p,q); //taking in consideration a descendant of itself and leftsubtree
+		else if(node.val < p.val && node.val < q.val) return lCA(root.right,p,q); //right subtree
 
 		return root;
 	}
@@ -54,8 +54,97 @@ public class TreePractice {
 			if(leftSubtreeDepth > rightSubtreeDepth) return leftSubtreeDepth + 1;
 			else return rightSubtreeDepth + 1;
 		}
-
 	}
+	public static int minDepth(TreeNode root) {
+        if(root == null) return 0; //hit base case
+        if(root.left == null) return minDepth(root.right)+1; //check right side
+        if(root.right == null) return minDepth(root.left)+1; //check left side 
+        
+        return Math.min(minDepth(root.left)+1,minDepth(root.right)+1);
+    }
+
+    public static boolean searchValue(TreeNode root, int val){
+    	TreeNode node = root;
+
+    	if(val == node.val) return true;
+    	if(val < node.val) return searchValue(node.left,val);
+    	if(val > node.val) return searchValue(node.right,val);
+
+    	return false;
+    }
+
+    // public static TreeNode addNode(TreeNode node, TreeNode root){
+    // 	if(root == null) addNode(node,root);
+    // 	if(node.val < root.val) return addNode(node,root.left);
+    // 	if(node.val > root.val) return addNode(node,root.right);
+    // }
+
+    /*
+     * DELETE : 3 cases
+     * 1. Leaf - if the node is a leaf then set the leaf to be null, keep track of parent node
+     * 2. 1 child - 
+     * 3. 2 children
+     */
+
+    public static void main(String[] args){
+    	TreeNode root = new TreeNode(10);
+    	root.left = new TreeNode(8);
+    	root.right = new TreeNode(15);
+    	root.left.right = new TreeNode(9);
+    	root.right.right = new TreeNode(20);
+    	System.out.println(searchValue(root,20));
+    }
+
+    /*
+     * Find kth smallest element in binary search tree
+     * Definitely inorder traversal since it visits the leftmost leaf which is the kth smallest node starting point
+     * return list based upon k-1.
+     * BigO: based upon the height of the binary tree
+     */
+
+    public int kthSmallest(TreeNode root, int k) {
+        List<Integer>result = new ArrayList<Integer>();
+        inOrder(root,result);
+        
+        return result.get(k-1);
+    }
+    
+    //inorder to get the leftmost leaf
+    private static void inOrder(TreeNode node, List result){
+        if(node == null) return;
+        if(node.left != null) inOrder(node.left,result);
+        result.add(node.val);
+        if(node.right != null) inOrder(node.right,result);
+        
+    }
+
+     /*
+     * Find kth largest element in binary search tree
+     * Definitely inorder traversal since it puts nodes in order
+     * Return based upon the list.size() - kth
+     * BigO: based upon the height of the binary tree
+     */
+
+	public int kthSmallest(TreeNode root, int k) {
+        List<Integer>result = new ArrayList<Integer>();
+        inOrder(root,result);
+        
+        return result.get(result.size() - k);
+      }
+
+    /* Return 2nd largest element in bst
+     *
+     */ 
+    
+     public static int secondLargestElement(TreeNode node){
+        //call inorder
+        List<Integer>result = new ArrayList<Integer>();
+        inOrder(node,result);
+
+        return result.get(result.size()-2);
+
+    }
+
 
 
 

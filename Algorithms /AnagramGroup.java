@@ -2,8 +2,9 @@ import java.util.*;
 
 //Given a list of words like [rats,star,arts,cie, ice], group same anagrams into buckets and output them
 
-public class AnagramBucket {
+public class AnagramGroup {
 	public static void anagram(ArrayList<String> list){
+		Arrays.sort(list); //makes the inner lists lexographic order
 		Hashtable<String,List<String>>map = new Hashtable<String,List<String>>();
 		for(String s : list){
 			char[] arr = s.toCharArray();

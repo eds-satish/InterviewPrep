@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class lps {
+public class LongestPalindromeSubstring {
 	private static int start, maxLen;
     
     public static String longestPalindrome(String s) {

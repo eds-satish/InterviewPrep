@@ -1,5 +1,6 @@
 public class CommonQuestions {
 	public static void main(String[] args){
+		System.out.println(computePower(5,3));
 	}
 
 
@@ -61,6 +62,14 @@ public class CommonQuestions {
 		}
 		else if(num % 3 == 0) System.out.println("Fuzz");
 		else if(num % 5 == 0) System.out.println("Buzz");
+	}
+	//Compute a^b
+	public static int computePower(int a, int b){
+		int result = 1;
+		for(int i = 0; i < b; ++i){
+			result *= a;
+		}
+		return result;
 	}
 
 }

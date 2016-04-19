@@ -31,6 +31,7 @@ public class BFS {
                 if(temp.left != null) queue.add(temp.left);
                 if(temp.right != null) queue.add(temp.right);
                 size--; //deleted one root before second while loop
+
             }
             result.add(oneLevel);
         }
