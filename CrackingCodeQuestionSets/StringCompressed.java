@@ -9,9 +9,11 @@ import java.util.*;
 public class StringCompressed {
 
 	public static void main(String[] args){
-		String str = "aaabcccccbb";
-		System.out.println(compressed(str));
+		String str = "aabcccccaaa";
+		System.out.println(hashWay(str));
 	}
+
+	//hashtable wouldnt work beause you have to treat each char as unique
 
 	public static String compressed(String str){
 		StringBuilder newStr = new StringBuilder(); //since its mutable so you can easily changed it 

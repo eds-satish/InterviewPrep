@@ -17,7 +17,7 @@ public class ReverseString {
 			char temp = str.charAt(i); 
 			arr[i] = arr[len];
 			arr[len] = temp;
-			len--;
+			len--; //decrement to get next element 
 		}
 		String newString = new String(arr);
 		System.out.println(newString);
