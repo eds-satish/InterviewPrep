@@ -145,6 +145,19 @@ public class TreePractice {
 
     }
 
+    /*
+     * Two trees are equal if the have the same data and arrangement of data is the same.
+     *
+     */ 
+    public boolean checkEqualTree(TreeNode a, TreeNode b){
+        if(a == null && b == null) return true;
+
+        else if(a != null && b != null){
+            return a.val == b.val && checkEqualTree(a.left,b.left) && checkEqualTree(a.right,b.right);
+        }
+        return false;
+
+    }
 
 
 
