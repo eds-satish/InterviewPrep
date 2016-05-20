@@ -13,7 +13,7 @@ public class LinkedList {
         System.out.println(reverseLinkedList(node));
     }
     
-    //reverse LinkedList
+    //Reverse LinkedList
     public static ListNode reverseLinkedList(ListNode node){
         if(node == null) throw new IllegalArgumentException("Head is null");
 
@@ -172,6 +172,37 @@ public class LinkedList {
             start.next = mergeTwoLists(l1,l2.next);
         }
         return start;
+    }
+
+    //add Twonumbers
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode node1 = l1;
+        ListNode node2 = l2;
+        int leftOverAdd = 0;
+        ListNode fakeHead = new ListNode(-1);
+        ListNode result = fakeHead;
+
+        //iterate continues until reaches end of longer list
+        while(node1 != null || node2 != null){
+            int value1 = 0;
+            int value2 = 0;
+            if(node1 != null){
+                value1 = node1.val;
+                node1 = node1.next;
+            } if(node2 != null){
+                value2 = node2.val;
+                node2 = node2.next;
+            }
+            int temp = value1 + value2 + leftOverAdd;
+            result.next = new ListNode(temp % 10); //to get last number in case its two-digits
+            result = result.next;
+            leftOverAdd = temp / 10;
+        }
+        //corner case [5] + [5]
+        if(leftOverAdd > 0){
+            result.next = new ListNode(leftOverAdd);
+        }
+        return fakeHead.next;
     }
 
 

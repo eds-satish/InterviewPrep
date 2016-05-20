@@ -7,13 +7,12 @@ public class ValidSudoku {
 		
 		Hashtable<Character, Boolean>row = new Hashtable<Character, Boolean>();
         Hashtable<Character, Boolean>col = new Hashtable<Character, Boolean>();
-        Hashtable<Character, Boolean>sq = new Hashtable<Character, Boolean>();n>();
+        Hashtable<Character, Boolean>sq = new Hashtable<Character, Boolean>();
 
 		for(int i = 0; i < 9; i++){
 			row.clear(); //clears out the keys to start off with new numbers
 			col.clear();
 			for(int j = 0; j < 9; j++){
-				System.out.println
 				if(board[i][j] != '.'){ //each column
 					if(col.containsKey(board[i][j])){
 						return false;

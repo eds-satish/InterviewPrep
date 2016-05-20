@@ -1,52 +1,40 @@
 import java.util.*;
 import java.io.*;
-//import static org.junit.Assert.*;
 
+/**
+ * Practice String questions
+ */
 
 public class StringPractice {
-	public static void main(String[] args){
-		String str = "aaaaaaaaaaaaaaaaabbbbcddddeeeeee";
-		String str2 = "Alex is awesome";
-		System.out.println(countWord(str2));		
-		
-	}
-
+	
 	//Print duplicate characters from String
 	public static void printDuplicate(String str){
 		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
-		for(int i = 0; i < str.length();++i){
-			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
-			else map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
+		for(char ch: str.toCharArray()){
+			if(!map.containsKey(ch))
+				map.put(ch,1);
+			else 
+				map.put(ch, map.get(ch)+1);
 		}
 		for(Map.Entry<Character,Integer>entry: map.entrySet()){
-			if(entry.getValue() > 1){
+			if(entry.getValue() > 1)
 				System.out.println(entry.getKey());
-			}
 		}
 	}
 
+	//Find first nonrepeated character - put into hashtable<Character,Integer>,
+	//loop through hashtable and return key where value equals 1 
 
-	//Find first nonrepeated character
-	public static char getFirstNonRepeatedChar(String str){
-		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
-		for(int i = 0; i < str.length();++i){
-			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
-			else map.put(str.charAt(i),map.get(str.charAt(i))+1);
-		}
-
-		for(Map.Entry<Character,Integer>entry: map.entrySet()){
-			if(entry.getValue() == 1) return entry.getKey();
-		}
-		throw new IllegalArgumentException("no nonrepeated character");
-	}
 
 	//Find Number of Times Per Char 
 	public static void numberofTimes(String str){
 		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
 
-		for(int i = 0; i < str.length(); i++){
-			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
-			else map.put(str.charAt(i), map.get(str.charAt(i))+1);
+		for(char ch: str.toCharArray()){
+			if(!map.containsKey(ch))
+				map.put(ch,1);
+			else 
+				map.put(ch, map.get(ch)+1);
 		}
 
 		for(Map.Entry<Character,Integer>entry: map.entrySet()){
@@ -62,21 +50,6 @@ public class StringPractice {
 		return true;
 	}
 
-	//Find duplicate characters in String and print them out
-	public static void duplicateChar(String str){
-		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
-		for(int i = 0; i < str.length();++i){
-			if(!map.containsKey(str.charAt(i))) map.put(str.charAt(i),1);
-			else map.put(str.charAt(i), map.get(str.charAt(i))+1);
-		}
-		for(Map.Entry<Character,Integer>entry: map.entrySet()){
-			if(entry.getValue() > 1){
-				System.out.print(entry.getKey());
-				System.out.print(": " + entry.getValue() + "\n");
-			}
-		}
-	}
-
 	//Count number of vowels and consonants 
 	public static void validator(String str){
 		int vowelCount = 0;
@@ -89,40 +62,7 @@ public class StringPractice {
 		}
 		System.out.println(vowelCount + " vowels");
 		System.out.println(consonantCount + " consonants");
-	}
-
-	//Convert numeric String to integer known as atoi 
-	public static int atoi(String str){
-		//think about whitespace case, "", "123", "+123", "-123", MAX, MIN 
-		str = str.trim(); //get rid of whitespace
-		if(str == null) throw new IllegalArgumentException("String is null");
-		else if(str.length() == 0 || str == "") return 0;
-
-		char firstSign = str.charAt(0);
-		int operation = 1;
-		int indexPos = 0;
-		int res = 0;
-
-		if(firstSign == '+'){
-			operation = 1;
-			indexPos++;
-		} else if(firstSign == '-'){
-			operation = -1;
-			indexPos++;
-		}
-
-		for(int i = indexPos; i < str.length();++i){
-			if(!Character.isDigit(str.charAt(i))) return (int) res * operation;
-
-			res = res * 10 + str.charAt(i) - '0'; 
-
-			if(firstSign == 1 && res > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-			else if(firstSign == -1 && res < Integer.MIN_VALUE) return Integer.MIN_VALUE;
-
-		}
-        return (int) res * operation;
-	}
-	
+	}	
 
 	//Reverse words in a sentence
 	public static String reverseSentence(String str){
@@ -137,7 +77,7 @@ public class StringPractice {
 	}
 
 
-	//How to remove an specific character from String
+	//Remove an specific character from String
 	public static String removeChar(String str, char value){
 		StringBuilder res = new StringBuilder();
 		for(int i = 0; i < str.length();++i){
@@ -145,6 +85,7 @@ public class StringPractice {
 		}
 		return res.toString();
 	}
+
 	//Remove all duplicate characters in String, remember to used a set
 	//Input: 'Bananas'
 	//Output: 'Bans'
@@ -160,17 +101,8 @@ public class StringPractice {
 		return res.toString();
 	}
 
-	//Check if a String is a valid shuffle of two strings
-	// public static boolean validShuffle(String str1, String str2, String str3){
-	// 	if(str1.length() + str2.length() != str3.length()) return false;
-
-	// }
-
-
-
-	//Write a program if a String contains another String eg. indexOf - FINISH
-
-	//Return highest occured character in String
+	
+	//Find highest occured character in String
 	public static char highestOccur(String str){
 		Hashtable<Character,Integer>map = new Hashtable<Character,Integer>();
 		int maxCount = 0;
@@ -196,17 +128,40 @@ public class StringPractice {
 		return count;
 	}
 
-	
+	// Find longest Substring Without Repeating Characters
+	public static int lenOfLongestSubstring(String str){
+		if(str == null) return 0;
+		boolean[] flag = new boolean[256];
+		int res = 0;
+		int start = 0;
+		char[] arr = str.toCharArray();
 
-	//Find longest palindrome in String - FINISH 
-
-	//Sort String on their length - FINISH
-
-
-}
-
-class ProgrammingTest {
-	public void testFirstNonRepeatedCharacter(){
-      //  assertEquals('b', StringPractice.getFirstNonRepeatedChar("abcdefghija"));
+		for(int i = 0; i < arr.length;++i){
+			char current = arr[i];
+			if(flag[current]){
+				res = Math.max(res, i - start);
+				for(int k = start; k < i;++k){
+					if(arr[k] == current){
+						start = k + 1; //start is the endpoint of substring
+						System.out.println("start: " + start);
+						break;
+					}
+					flag[arr[k]] = false;
+				}
+			} else {
+				flag[current] = true;
+			}
+		}
+		res = Math.max(res, arr.length - start);
+		return res;
 	}
+
+	public static void main(String[] args){
+		String str = "bbbbb";
+		printDuplicate(str);
+		
+	}
+
+
 }
+

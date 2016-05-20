@@ -1,6 +1,20 @@
 public class CommonQuestions {
 	public static void main(String[] args){
-		System.out.println(computePower(5,3));
+		//System.out.println(computePower(5,3));
+		String[] names = {
+		    "MacLaren’s Pub", //0
+		    "Monk’s Cafe", // 1
+		    "Paddy’s Pub", //2
+		    "Taco Town", //3
+		    "Xylophone Cafe", //4
+		    "Abdul’s Orange Chicken Emporium", //5
+		    "Bob’s Burgers", //6
+		    "Central Perk", //7
+		    "Da Situation", //8
+		    "Krusty Krab",//9
+		    "Los Pollos Hermanos", //10
+		};
+		System.out.println(findRotationPoint(names));
 	}
 
 
@@ -71,5 +85,51 @@ public class CommonQuestions {
 		}
 		return result;
 	}
+	//Write a function for finding the index of the rotationPoint
+	public static int findRotationPoint(String[] names){
+	    int low = 0;
+	    int high = names.length - 1;
+	    int mid = (low + high)/2;
+	    
+	    while(low < high){
+	      if(names[mid].compareTo(names[low]) < 0){
+	        low = mid; //deleting left part of array up to mid
+	      } else {
+	        high = mid; //deleting right part of array up to mid
+	      }  
+	      mid = (low + high)/2; //reset to next mid
+	    }
+	    return mid; //returns 5   
+  }
+
+	// Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+
+	// (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+
+	// Find the minimum element.
+
+  	public int findMin(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+        int mid = (low + high)/2;
+        
+
+        while(low <= high){
+            if(nums[mid] > nums[high]){
+                low = mid + 1;
+            } else if(nums[mid] < nums[low]){
+                high = mid;
+            } else {
+                break;
+            }
+            mid = (low + high)/2;
+        }
+        return nums[low];
+    }
+
+ 
+
+
+
 
 }

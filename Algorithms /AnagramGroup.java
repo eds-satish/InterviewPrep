@@ -1,10 +1,12 @@
 import java.util.*;
 
-//Given a list of words like [rats,star,arts,cie, ice], group same anagrams into buckets and output them
+/**
+ * Given a list of words like [rats,star,arts,cie,ice]. Group same anagrams into buckets and output them.
+ */
 
 public class AnagramGroup {
 	public static void anagram(ArrayList<String> list){
-		Arrays.sort(list); //makes the inner lists lexographic order
+		Collections.sort(list); //makes the inner lists lexographic order
 		Hashtable<String,List<String>>map = new Hashtable<String,List<String>>();
 		for(String s : list){
 			char[] arr = s.toCharArray();
@@ -16,7 +18,8 @@ public class AnagramGroup {
 			if(!map.containsKey(sortedStr)){
 				temp.add(s);
 				map.put(sortedStr,temp);
-			} else map.get(sortedStr).add(s);
+			} else 
+				map.get(sortedStr).add(s);
 		}
 
 		for(Map.Entry<String,List<String>>entry: map.entrySet()) System.out.println(entry.getValue());
