@@ -128,7 +128,7 @@ public class StringPractice {
 		return count;
 	}
 
-	// Find longest Substring Without Repeating Characters
+	//Find longest Substring Without Repeating Characters
 	public static int lenOfLongestSubstring(String str){
 		if(str == null) return 0;
 		boolean[] flag = new boolean[256];
@@ -156,9 +156,27 @@ public class StringPractice {
 		return res;
 	}
 
+	//Implement a function to find the first character in a string which only appears once.
+	//Input: "abaccdeff", Output:"b"
+
+	public static String firstCharacterOnce(String str){
+		HashMap<Character,Integer>map = new HashMap<Character,Integer>();
+		for(int i = 0; i < str.length();++i){
+			char ch = str.charAt(i);
+			if(!map.containsKey(ch))
+				map.put(ch,1);
+			else 
+				map.put(ch,map.get(ch)+1);
+		}
+		for(Map.Entry<Character,Integer>entry: map.entrySet()){
+			if(entry.getValue() == 1) return entry.getKey().toString();
+		}
+		return "";
+	}
+
 	public static void main(String[] args){
-		String str = "bbbbb";
-		printDuplicate(str);
+		String str = "abaccdeff";
+		System.out.println(firstCharacterOnce(str));
 		
 	}
 

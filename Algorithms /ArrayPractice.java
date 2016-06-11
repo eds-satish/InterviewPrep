@@ -1,25 +1,28 @@
 import java.util.*;
 public class ArrayPractice {
-	//Non-optimized recursive solution
-	//Runtime: Since each fib call makes two calls, we need to think of it as a binary tree.
-	//The height of a binary tree is O(n) which means the toal number of nodes is 2^n, so total runtime is O(2^n).
+	
+	/** 
+	 * Non-optimized recursive solution
+	 * Runtime: Since each fib call makes two calls, we need to think of it as a binary tree.
+	 * The height of a binary tree is O(n) which means the toal number of nodes is 2^n, so total runtime is O(2^n).
+	 */
 	public static int fibo(int num){
 		if(num < 2) return num;
 		else return fibo(num-1) + fibo(num-2);
 
 	}
 
-	//Optimized recursive fibonacci solution
-	//Runtime: O(n) time total and O(n) space. 
+	/** 
+	 * Optimized recursive fibonacci solution
+	 */
 	public static int memo(int num){
 		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
-		int res = 0;
 		
 		if(num < 2) return num;
 
 		if(map.containsKey(num)) return map.get(num);
 
-		res = memo(num-1) + memo(num-2);
+		int res = memo(num-1) + memo(num-2);
 		map.put(num,res);
 
 		return res;
@@ -112,10 +115,7 @@ public class ArrayPractice {
 			actualSum += i;
 		return expectedSum - actualSum;
 	}
-
-	//Find missing numbers in an arr  - HARD
 	
-
 	//Find the duplicate number in array
 	public static int findDuplicate(int[] arr){
 		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
@@ -129,11 +129,6 @@ public class ArrayPractice {
 		throw new IllegalArgumentException("invalid arr");
 	}
 
-	//Check if array contains a number in Java
-	public static boolean containsNum(int[] arr, int value){
-		for(int i = 0; i < arr.length;++i) if(arr[i] == value) return true;
-		return false;
-	}
 	//Find largest and smallest number in unsorted array
 	public static void MaxAndMin(int[] arr){
 		int max = Integer.MIN_VALUE;
@@ -147,32 +142,7 @@ public class ArrayPractice {
 		System.out.println("min number: " + min);
 	}
 
-	//Print pairs in Arrays of Integers whose sum is equal to the number
-	//Algorithmn is O(n^2), can we improved it? 
-	//Ask if it can contain positive/negative numbers? What happens if it appears twice
-	//Are pairs distinct? 
-	public static void printPairs(int[] arr, int sum){
-		ArrayList<Integer>list = new ArrayList<Integer>();
-		for(int i = 0; i < arr.length;++i){
-			for(int j = i+1; j < arr.length;++j){
-				if(arr[i] + arr[j] == sum){
-					System.out.println("(" + arr[i] + "," + arr[j] + ")");
-				}
-			}
-		}
-	}
 	
-	//Runtime: O(n) because it requires less comparisons. Only n to iterate through array
-	//and constant operation for set. 
-	public static void optimizedPrintPairs(int[] nums, int sum){
-		Set<Integer>set = new HashSet<Integer>();
-		for(int firstPair: nums){
-			int secondPair = sum - firstPair;
-			if(!set.contains(secondPair)) set.add(firstPair);
-			else System.out.printf("(%d,%d) %n",firstPair,secondPair);
-		}
-	}
-
 	//Find repeated numbers in an array if it contains a duplicate
 	public static void findRepeatedDuplicates(int[] arr){
 		Hashtable<Integer,Integer>map = new Hashtable<Integer,Integer>();
@@ -201,7 +171,8 @@ public class ArrayPractice {
 		return list;
 	}
 
-	//Find the kth smallest/largest element in unsorted array
+	//Find the kth smallest/largest element in unsorted array, really inefficient O(nlogn)
+	//For a better approach use priorityqueue
 	public static int kthSmallest(int[] arr, int k){
 		Arrays.sort(arr);
 		for(int i = 0; i < arr.length;++i){
@@ -209,8 +180,6 @@ public class ArrayPractice {
 		}
 		return 0;
 	}
-
-	//Find common elements in three sorted arrays
 
 	//Find First Repeated Element in Array
 	public static int firstRepeatedElem(int[] arr){
@@ -247,15 +216,13 @@ public class ArrayPractice {
 	//Find top two numbers in array
 	public static ArrayList<Integer> topTwo(int[] arr){
 		ArrayList<Integer>list = new ArrayList<Integer>();
-		int max1 = Integer.MIN_VALUE;
-		int max2 = Integer.MIN_VALUE;
-		for(int i = 0; i < arr.length;i++){
+		int max1 = Integer.MIN_VALUE, max2 = Integer.MIN_VALUE;
+		for(int i : arr){
 			if(arr[i] > max1){
-				max2 = max1; //have to set it before before losing track of it
+				max2 = max1;
 				max1 = arr[i];
-			} else if(arr[i] > max2){
+			} else if(arr[i] > max2)
 				max2 = arr[i];
-			}
 		}
 		list.add(max1);
 		list.add(max2);
@@ -338,6 +305,28 @@ public class ArrayPractice {
     	}
     	return second;
     }
+   
+
+    public void moveZeroes(int[] nums) {
+        int i = 0, j = 0;
+        while(i < nums.length){
+            if(nums[i] == 0){
+                i++;
+            } else {
+                nums[j] = nums[i];
+                i++;
+                j++; //j will end where you would have to place zero's at end
+            }
+        }
+
+        while(j < nums.length){
+            nums[j] = 0;
+            j++;
+        }
+    }
+
+  
+
 
     public static void main(String[] args){
 		int[] arr1 = {1, 1, 2,2,3}; 

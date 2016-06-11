@@ -1,3 +1,5 @@
+import java.util.*;
+
 class TreeNode {
 	int val;
 	TreeNode left;
@@ -118,14 +120,14 @@ public class TreePractice {
         
     }
 
-     /*
+    /*
      * Find kth largest element in binary search tree
      * Definitely inorder traversal since it puts nodes in order
      * Return based upon the list.size() - kth
      * BigO: based upon the height of the binary tree
      */
 
-	public int kthSmallest(TreeNode root, int k) {
+	public int kthLargest(TreeNode root, int k) {
         List<Integer>result = new ArrayList<Integer>();
         inOrder(root,result);
         
@@ -158,6 +160,47 @@ public class TreePractice {
         return false;
 
     }
+
+    /*
+     * Given a non-empty binary search tree and a target value, 
+     * find the value in the BST that is closest to the target.
+     */
+    public int closestValue(TreeNode root, double target) {
+        double min = Double.MAX_VALUE;
+        int res = 0;
+
+        if(root == null)
+            return res;
+
+        //base case 
+        if(Math.abs(root.val - target) < min){
+            min = Math.abs(root.val - target);
+            res = root.val; //on the closest value to target
+        }
+
+        //recursive cases 
+        if(target < root.val) 
+            closestValue(root.left,target);
+        if(target > root.val)
+            closestValue(root.right,target);
+        
+        return res;
+    }
+
+    /*
+     * Get the size of a tree
+     */
+
+    public int size(TreeNode root){
+        if(root == null) 
+            return 0;
+        else
+            return size(root.left) + 1 + size(root.right); 
+    }
+
+
+
+
 
 
 
